@@ -4,7 +4,7 @@ class App extends React.Component{
     render (){
       return(
         <div className="app">
-        trying out
+        <div className="container">trying out</div>
         </div>
       );
     }
