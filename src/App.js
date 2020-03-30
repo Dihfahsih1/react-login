@@ -19,11 +19,17 @@ class App extends React.Component{
     let result = await res.json();
     if(result && result.success){
       UserStore.loading = false;
+      UserStore.isLoggedIn = true;
+      UserStore.username = result.username;
     }
-
+    else {
+      UserStore.loading = false;
+      UserStore.isLoggedIn = false;
+    }
     }
     catch(e){
-
+      UserStore.loading = false;
+      UserStore.isLoggedIn = false;  
     }
   }
   render (){
