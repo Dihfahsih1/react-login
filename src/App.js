@@ -4,7 +4,6 @@ import LoginForm from './LoginForm';
 import InputField from './InputField';
 import SubmitButton from './SubmitButton';
 import './App.css';
-
 class App extends React.Component{
   async componentDidMount() {
     try{
@@ -15,7 +14,6 @@ class App extends React.Component{
         'Content-type':'application/json'
       }
     });
-
     let result = await res.json();
     if(result && result.success){
       UserStore.loading = false;
@@ -29,7 +27,7 @@ class App extends React.Component{
     }
     catch(e){
       UserStore.loading = false;
-      UserStore.isLoggedIn = false;  
+      UserStore.isLoggedIn = false;
     }
   }
   render (){
