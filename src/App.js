@@ -30,13 +30,38 @@ class App extends React.Component{
       UserStore.isLoggedIn = false;
     }
   }
+
+  async doLogout() {
+    try{
+    let res = await fetch('/logout', {
+      method: 'post',
+      headers: {
+        'Accept':'application/json',
+        'Content-type':'application/json'
+      }
+    });
+    let result = await res.json();
+    if(result && result.success){
+      UserStore.isLoggedIn = false;
+      UserStore.username = '';
+    }
+    }
+    catch(e){
+    console.log(e)
+    }
+  }
+
   render (){
+    if (UserStore.loading){
       return(
         <div className="app">
-        <div className="container">trying out</div>
+          <div className="container">
+            loading, please wait..
+          </div>
         </div>
       );
     }
+  }
 }
 
 
