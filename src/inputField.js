@@ -4,7 +4,7 @@ class InputField extends React.Component{
       return(
         <div className="inputField">
           <input
-           className='container'
+           className='input'
            type={this.props.type}
            placeholder={this.props.placeholder}
            value={this.props.value}
